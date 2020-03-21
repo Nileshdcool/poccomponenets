@@ -15,12 +15,15 @@ export class EmailInputComponent implements OnInit {
   constructor() { }
 
   getErrorEmail() {
+    debugger;
     return this.parentForm.get('email').hasError('required') ? 'Field is required' :
       this.parentForm.get('email').hasError('pattern') ? 'Not a valid emailaddress' :
         this.parentForm.get('email').hasError('alreadyInUse') ? 'This emailaddress is already in use' : '';
   }
 
   ngOnInit() {
+    debugger;
+    this.parentForm;
   }
 
 }

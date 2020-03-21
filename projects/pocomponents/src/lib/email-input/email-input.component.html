@@ -1,3 +1,7 @@
-<p>
-  email-input works!
-</p>
+<mat-form-field class="form-element">
+  <label for="email" [formGroup]="parentForm">Email</label>
+  <input matInput name="email" [placeholder]="placeholder" [formControlName]="'email'">
+  <!-- <mat-error *ngIf="!formGroup.controls['email'].valid && formGroup.controls['email'].touched">
+    {{ getErrorEmail() }}
+  </mat-error> -->
+</mat-form-field>

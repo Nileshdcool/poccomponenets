@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'poc-email-input',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmailInputComponent implements OnInit {
 
+  @Input() placeholder:string = '';
+  @Input() formControlName:FormControl;
+  @Input() parentForm: FormGroup;
+
   constructor() { }
+
+  getErrorEmail() {
+    return this.parentForm.get('email').hasError('required') ? 'Field is required' :
+      this.parentForm.get('email').hasError('pattern') ? 'Not a valid emailaddress' :
+        this.parentForm.get('email').hasError('alreadyInUse') ? 'This emailaddress is already in use' : '';
+  }
 
   ngOnInit() {
   }

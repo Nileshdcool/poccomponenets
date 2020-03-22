@@ -54,15 +54,13 @@ export class AppComponent implements OnInit {
   }
 
   getErrorEmail() {
+    debugger;
     return this.formGroup.get('email').hasError('required') ? 'Field is required' :
       this.formGroup.get('email').hasError('pattern') ? 'Not a valid emailaddress' :
         this.formGroup.get('email').hasError('alreadyInUse') ? 'This emailaddress is already in use' : '';
   }
 
-  getErrorPassword() {
-    return this.formGroup.get('password').hasError('required') ? 'Field is required (at least eight characters, one uppercase letter and one number)' :
-      this.formGroup.get('password').hasError('requirements') ? 'Password needs to be at least eight characters, one uppercase letter and one number' : '';
-  }
+ 
 
   onSubmit(post) {
     this.post = post;

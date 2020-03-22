@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -9,12 +9,15 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 export class EmailInputComponent implements OnInit {
 
   @Input() placeholder:string = '';
-  @Input() formControlName:FormControl;
+  @Input() formControlName:any;
   @Input() parentForm: FormGroup;
+  @Output() onError = new EventEmitter();
+  @Input() isError:boolean = false;
 
   constructor() { }
 
   getErrorEmail() {
+    // this.onError.emit();
     debugger;
     return this.parentForm.get('email').hasError('required') ? 'Field is required' :
       this.parentForm.get('email').hasError('pattern') ? 'Not a valid emailaddress' :
@@ -22,8 +25,7 @@ export class EmailInputComponent implements OnInit {
   }
 
   ngOnInit() {
-    debugger;
-    this.parentForm;
+    
   }
 
 }

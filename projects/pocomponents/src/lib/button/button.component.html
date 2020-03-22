@@ -1,3 +1,4 @@
-<p>
-  button works!
-</p>
+<form [formGroup]="parentForm" class="form">
+  <button mat-raised-button color="primary" [type]="type" class="button" [disabled]="!parentForm.valid">Submit
+    Form</button>
+</form>
